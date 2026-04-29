@@ -3,7 +3,7 @@
 Personal Linux desktop configuration managed with **GNU Stow**.  
 Featuring a dual-compositor setup (**Hyprland** & **Niri**) on Wayland, with a focus on minimalism, performance, and keyboard-driven workflows.
 
-![Preview](.git/preview.png)
+![Preview](.github/preview.png)
 
 ## 📖 Overview
 

@@ -1,0 +1,51 @@
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+}
+
+window {
+    margin: 0px;
+    background-color: transparent; /* Убираем фон здесь, чтобы он не вылезал за углы */
+}
+
+#outer-box {
+    margin: 2px; /* Небольшой отступ, чтобы рамка не обрезалась */
+    border: 2px solid #FF4F5B; /* Окантовка Ashen Red здесь */
+    background-color: #121212; /* Цвет фона переносим сюда */
+    border-radius: 16px; /* Радиус как в Niri */
+    padding: 10px;
+}
+
+#input {
+    margin: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #E69143; /* Окантовка Orange Smolder */
+    color: #4A8B8B; /* Текст Blue */
+    background-color: #322119;
+}
+
+#inner-box {
+    margin: 5px;
+}
+
+#text {
+    margin: 5px;
+    color: #4A8B8B; /* Текст Blue */
+}
+
+#entry {
+    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+}
+
+#entry:selected {
+    border: 2px solid #E69143; /* Окантовка Orange Smolder */
+    background-color: #322119;
+}
+
+#entry:selected #text {
+    color: #4A8B8B;
+    font-weight: bold;
+}

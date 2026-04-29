@@ -1,0 +1,42 @@
+
+# Main background, Lua-styled hex colors
+theme[main_bg]="#121212"
+
+# Main text color (Golden orange)
+theme[main_fg]="#E5A72A"
+
+# Title color for boxes (Blue)
+theme[title]="#4A8B8B"
+
+# Highlight color for keyboard shortcuts (Ashen red)
+theme[hi_fg]="#FF4F5B"
+
+# Selected item background (Dark brown)
+theme[selected_bg]="#322119"
+
+# Selected item text
+theme[selected_fg]="#FF4F5B"
+
+# Inactive/Disabled text (Orange muted)
+theme[inactive_fg]="#6D3B22"
+
+# Color of graph edges (Blue / Dark blue)
+theme[graph_text]="#4A8B8B"
+
+# CPU graph colors (Gradient: Blue -> Orange Smolder -> Ashen Red)
+theme[cpu_start]="#4A8B8B"
+theme[cpu_mid]="#E69143"
+theme[cpu_end]="#FF4F5B"
+
+# Memory graph colors (Blue -> Dark Blue)
+theme[mem_start]="#3B6F6F"
+theme[mem_mid]="#4A8B8B"
+theme[mem_end]="#89492A"
+
+# Temperature colors (Blue -> Red flame)
+theme[temp_start]="#4A8B8B"
+theme[temp_mid]="#F5C451"
+theme[temp_end]="#C53030"
+
+# Process table (Blue headers)
+theme[proc_misc]="#4A8B8B"

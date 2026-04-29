@@ -1,0 +1,25 @@
+# Основные настройки
+font=JetBrains Mono 10
+width=350
+height=150
+margin=20,20
+padding=15
+border-size=2
+border-radius=16
+background-color=#121212
+text-color=#4A8B8B
+border-color=#3B6F6F
+
+# Геометрия и поведение
+default-timeout=5000
+group-by=category
+
+# Специфичные цвета для разных уровней важности
+[urgency=high]
+border-color=#FF4F5B
+text-color=#FF4F5B
+default-timeout=0
+
+[urgency=low]
+border-color=#322119
+text-color=#6D3B22

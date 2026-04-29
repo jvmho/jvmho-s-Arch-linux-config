@@ -1,0 +1,80 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono";
+    font-size: 14px;                          /* увеличено с 13px */
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    transition: none;
+}
+
+window#waybar {
+    background-color: #121212;
+    border-bottom: 2px solid #3B6F6F;
+}
+
+/* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ: ЧАСЫ --- */
+#clock {
+    padding: 0 10px;
+    font-size: 18px;          /* крупнее остальных */
+    font-weight: bold;        /* уже жирный по *, но дублируем */
+}
+
+/* --- ПРАВАЯ ЧАСТЬ: МОДУЛИ --- */
+#pulseaudio, #backlight, #memory, #battery {
+    padding: 0 0px;
+    margin: 0;
+    font-size: 16px
+}
+
+#pulseaudio { color: #E69143; }
+#backlight  { color: #E69143; }
+#memory     { color: #E69143; }
+#battery    { color: #E69143; }
+
+#battery.critical {
+    color: #FF4F5B;
+}
+
+#custom-separator {
+    color: #E69143;          /* цвет разделителя, можно #3B6F6F или #E69143 */
+    padding: 0 8px;          /* горизонтальный отступ */
+    margin: 0;
+    font-size: 16px;         /* под размер остального текста */
+    font-weight: normal;     /* не жирный, чтобы не выделялся */
+}
+
+/* Кнопка выключения — акцентная точка */
+#custom-power {
+    padding: 5 5px;
+    background-color: #C53030;
+    color: #121212;
+    margin: 0 10px;
+}
+
+/* --- CPU --- */
+#cpu {
+    color: #E69143;
+    padding: 0 12px;
+    margin: 0;
+    font-size: 16px
+}
+
+/* --- RAM (кастомный модуль) --- */
+#custom-memory_full {
+    color: #E69143;            /* стартовый цвет */
+    padding: 0 12px;
+    margin: 0;
+    transition: color 0.3s ease;
+    font-size: 16px
+}
+
+/* Цветовая индикация загрузки RAM */
+#custom-memory_full.low {
+    color: #E69143;            /* Золотистый оранжевый */
+}
+#custom-memory_full.warning {
+    color: #FF4F5B;            /* жёлтый */
+}
+#custom-memory_full.critical {
+    color: #C53030;            /* красный */
+}

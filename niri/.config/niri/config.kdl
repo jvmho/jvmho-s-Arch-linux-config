@@ -1,0 +1,284 @@
+// .-==================-.
+//   ╭╮╷ ╷╭┬╮╷ ╷╭─╮╷╭─╮  
+//    ││╭╯│││├─┤│ │ ╰─╮  
+//  ╰─╯╰╯ ╵ ╵╵ ╵╰─╯ ╰─╯  
+//    ╭─╴╭─╮╭╮╷╭─╴╷╭─╴   
+//    │  │ ││╰┤├╴ ││╶╮   
+//    ╰─╴╰─╯╵ ╵╵  ╵╰─╯   
+// `-==================-`
+
+//  .-=============-.
+// <--==[ INPUT ]==-->
+//  `-=============-`
+
+input {
+    keyboard {
+        xkb {
+            // US + RU keyboard layout
+            layout "us,ru"
+            // Switch between them on Alt + Shift
+            options "grp:alt_shift_toggle"
+        }
+        numlock // numlock on startup
+    }
+    touchpad {
+        tap
+        natural-scroll
+        // Cursor acceleration
+        accel-speed 0.2
+        accel-profile "flat"
+    }
+    mouse {
+        accel-speed 0.2
+        accel-profile "flat"
+    }
+    trackpoint {
+        off    
+    }
+}
+
+//  .-================-.
+// <--==[ MONITORS ]==-->
+//  `-================-`
+
+/-output "eDP-1" {
+    mode "1920x1080@120.030"
+    scale 2
+    transform "normal"
+    position x=1280 y=0
+}
+
+//  .-==============-.
+// <--==[ LAYOUT ]==-->
+//  `-==============-`
+
+// --===[ Focus Ring Geometry ]==--
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+layout {
+    gaps 10
+    
+    center-focused-column "never"
+    // Settings below cycled with Mod + R
+    //  Width settings
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    // --==[ Height settings ]==--
+    preset-window-heights {
+        proportion 0.5
+        proportion 1.0        
+    }
+    
+    default-column-width { proportion 0.5; }
+
+    // --==[ Focus Ring ]==--
+    focus-ring {
+        off
+        width 3 // logical pixels
+
+        // Color of the ring on the active monitor.
+        active-gradient from="#FF4F5B" to="#E69143" angle=45
+
+        inactive-gradient from="#4A8B8B" to="#3B6F6F" angle=45
+    }
+
+    // --==[ Border ]==--
+    border {
+        on
+        width 4
+        active-gradient from="#FF4F5B" to="#E69143" angle=45
+        inactive-gradient from="#4A8B8B" to="#3B6F6F" angle=-45
+        urgent-color "#C53030"
+    }
+
+    // --==[ Snadow ]==--
+    /-shadow {
+        softness 30
+        // Spread expands the shadow.
+        spread 5
+        // Offset moves the shadow relative to the window.
+        offset x=0 y=5
+        // You can also change the shadow color and opacity.
+        color "#0007"
+    }
+
+    // --==[ Window Bounds ]==--
+    struts {
+        left 4
+        right 4
+        top 6
+        bottom 6
+    }
+}
+
+prefer-no-csd
+
+//  .-=================-.
+// <--==[ AUTOSTART ]==-->
+//  `-=================-`
+
+spawn-at-startup "waybar"      // Top bar
+spawn-at-startup "mako"        // Popups
+spawn-at-startup "awww-daemon" // Wallpapers
+
+// Greeting text with hotkeys on startup
+hotkey-overlay {
+    skip-at-startup
+}
+
+// --==[ Animations ]==--
+animations {
+    // off
+    // slowdown 3.0
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Firefox picture-in-picture floating mode
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Block screen capture for password managers
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+}
+
+//  .-================-.
+// <--==[ KEYBINDS ]==-->
+//  `-================-`
+
+binds {
+    // --==[ Hotkey overlay ]==--
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // --==[ Main keybinds ] ==--
+    Mod+Q hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Space hotkey-overlay-title="Run an Application: wofi" { spawn "wofi"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Shift+S hotkey-overlay-title="Screenshot" { spawn "/home/jvmho/.local/bin/screenshot.sh"; }
+    Mod+Shift+C repeat=false { close-window; }
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Z hotkey-overlay-title="Open a browser: Zen" { spawn "/home/jvmho/Applications/zen/zen"; }
+
+    // --==[ Volume ]==--
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // --==[ Brightness ]==--
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    // --==[ Focus ]==--
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    // --==[ Window management ]==--
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-window-to-workspace-up; }
+    Mod+Ctrl+U         { move-window-to-workspace-down; }
+    Mod+Ctrl+I         { move-window-to-workspace-up; }
+
+    Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Ctrl+2 { move-window-to-workspace 2; }
+    Mod+Ctrl+3 { move-window-to-workspace 3; }
+    Mod+Ctrl+4 { move-window-to-workspace 4; }
+    Mod+Ctrl+5 { move-window-to-workspace 5; }
+    Mod+Ctrl+6 { move-window-to-workspace 6; }
+    Mod+Ctrl+7 { move-window-to-workspace 7; }
+    Mod+Ctrl+8 { move-window-to-workspace 8; }
+    Mod+Ctrl+9 { move-window-to-workspace 9; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    // --==[ Window and column manipulations ]==--
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-column-width-back; }
+
+    Mod+Ctrl+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    Mod+M { maximize-window-to-edges; }
+
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    Mod+C { center-column; }
+
+    Mod+Ctrl+C { center-visible-columns; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+W { toggle-column-tabbed-display; }
+
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    Mod+Shift+P { power-off-monitors; }
+}

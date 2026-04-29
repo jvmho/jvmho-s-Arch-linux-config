@@ -1,0 +1,14 @@
+width=500
+height=350
+location=center
+show=drun
+prompt=System
+filter_rate=100
+allow_markup=true
+no_actions=true
+halign=fill
+orientation=vertical
+content_halign=fill
+insensitive=true
+# Отключаем иконки
+allow_images=false

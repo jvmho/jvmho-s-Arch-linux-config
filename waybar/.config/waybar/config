@@ -1,0 +1,72 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 0,
+    "modules-left": [
+        "keyboard-state",
+        "suctom/separator",
+        "custom/memory_full",
+        "custom/separator",
+        "cpu"
+    ],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "pulseaudio",
+        "custom/separator",
+        "backlight",
+        "custom/separator",
+        "battery",
+        "custom/power"
+    ],
+
+    "keyboard-state": {
+        "format": "{layout}"
+    },
+
+    "clock": {
+        "format": "<span color='#3B6F6F'>--==[</span><span color='#E5A72A'>{:%Y.%m.%d | %H:%M}</span><span color='#3B6F6F'>]==--</span>"
+    },
+
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-muted": " {volume}%",
+        "tooltip": "Volume"
+    },
+
+    "backlight": {
+        "format": "󰃞 {percent}%",
+        "tooltip": "Screen brightness"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2,
+        // "on-click": ""  // можно добавить действие
+    },
+
+    "custom/memory_full": {
+        "exec": "~/.config/waybar/scripts/memory_full.sh",
+        "return-type": "json",
+        "interval": 2,
+        "format": "{}",
+        "tooltip": "RAM | SWAP"
+    },
+
+    "custom/separator": {
+    "format": "|",
+    "tooltip": false
+    },
+    
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+        "tooltip": "Battery"
+    },
+
+    "custom/power": {
+        "format": "  ",
+        "tooltip": "Power menu",
+        "on-click": "/home/jvmho/.config/waybar/scripts/power.sh"
+    }
+}

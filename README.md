@@ -68,34 +68,34 @@ Super = Windows/Command key
 ### 🪟 Window & Workspace Management
 
 Binding	Action
-- Super + Return	Open Terminal (Kitty)
-- Super + Q	Close focused window
-- Super + Space	Launch App Menu (Wofi)
-- Super + H/J/K/L	Focus window (Vim-style Left/Down/Up/Right)
-- Super + Ctrl + H/J/K/L	Move window (Vim-style)
-- Super + O	Toggle Overview
-- Super + V	Toggle floating mode
-- Super + F	Maximize window (keep bars)
-- Super + Shift + F	True Fullscreen
-- Super + 1..9	Switch to workspace 1-9
-- Super + R	Toggle Split (Dwindle)
+- `Super + Return`	Open Terminal (Kitty)
+- `Super + Q`	Close focused window
+- `Super + Space`	Launch App Menu (Wofi)
+- `Super + H/J/K/L`	Focus window (Vim-style Left/Down/Up/Right)
+- `Super + Ctrl + H/J/K/L`	Move window (Vim-style)
+- `Super + O`	Toggle Overview
+- `Super + V`	Toggle floating mode
+- `Super + F`	Maximize window (keep bars)
+- `Super + Shift + F`	True Fullscreen
+- `Super + 1..9`	Switch to workspace 1-9
+- `Super + R`	Toggle Split (Dwindle)
 
 ### 🚀 Apps & Utilities
 
 Binding	Action
-- Super + Z	Launch Zen Browser
-- Super + Shift + S	Screenshot region
-- Super + Shift + Space	Power Menu
-- Super + Shift + E	Logout Script
-- Super + Alt + L	Lock Screen (Swaylock)
-- Super + S	Toggle Special Workspace (Scratchpad)
+- `Super + Z`	Launch Zen Browser
+- `Super + Shift + S`	Screenshot region
+- `Super + Shift + Space`	Power Menu
+- `Super + Shift + E`	Logout Script
+- `Super + Alt + L`	Lock Screen (Swaylock)
+- `Super + S`	Toggle Special Workspace (Scratchpad)
 
 ### 🔊 Media & Brightness
 
 Binding	Action
-- XF86AudioRaise/Lower	Volume +/- 10%
-- XF86AudioMute	Toggle Mute
-- XF86MonBrightnessUp/Down	Brightness +/- 10%
+- `XF86AudioRaise/Lower`	Volume +/- 10%
+- `XF86AudioMute`	Toggle Mute
+- `XF86MonBrightnessUp/Down`	Brightness +/- 10%
 
 > ⚠️ Niri uses a different config syntax (config.kdl). Keybinds are functionally similar but defined separately in niri/.config/niri/.
 

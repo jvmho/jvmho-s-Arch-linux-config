@@ -43,13 +43,13 @@ _git_info() {
     local commit_icon=$'\uf417'       # 
 
     # Первая часть [  on ветка ]
-    local first_part="%F{magenta}[%f%F{cyan}${git_icon} on ${branch}%f%F{magenta}]%f"
+    local first_part="%F{magenta}[%f%F{cyan} ${git_icon} on ${branch} %f%F{magenta}]%f"
 
     # Вторая часть (только ненулевые значения)
     local second_parts=""
-    (( untracked > 0 )) && second_parts+=" %F{cyan}${untracked_icon}${untracked}%f"
-    (( changed > 0 ))   && second_parts+=" %F{cyan}${changed_icon}${changed}%f"
-    (( last_commit > 0 )) && second_parts+=" %F{cyan}${commit_icon}${last_commit}%f"
+    (( untracked > 0 )) && second_parts+=" %F{cyan}${untracked_icon} ${untracked}%f"
+    (( changed > 0 ))   && second_parts+=" %F{cyan}${changed_icon} ${changed}%f"
+    (( last_commit > 0 )) && second_parts+=" %F{cyan}${commit_icon} ${last_commit}%f"
 
     local second_part=""
     if [[ -n "$second_parts" ]]; then

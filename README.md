@@ -1,4 +1,4 @@
-# 🏠 Dotfiles
+то# 🏠 Dotfiles
 
 Personal Linux desktop configuration managed with **GNU Stow**.  
 Featuring a dual-compositor setup (**Hyprland** & **Niri**) on Wayland, with a focus on minimalism, performance, and keyboard-driven workflows.
@@ -133,7 +133,7 @@ Command	Description
 - [Hyprland](https://github.com/hyprwm/Hyprland) & [Niri](https://github.com/niri-wm/niri) – for pushing Wayland tiling forward
 - [Waybar](https://github.com/Alexays/Waybar) & [Wofi](https://github.com/SimplyCEO/wofi) – for sleek Wayland UI tools
 - [Kitty](https://github.com/kovidgoyal/kitty) – for a blazing fast terminal
-- [ficd0](https://github.com/ficd0) - for beautyful color palette from his helix [ashen](https://github.com/ficd0/ashen) theme
+- [ficd0](https://github.com/ficd0) - for beautiful color palette from his helix [ashen](https://github.com/ficd0/ashen) theme
 - [krisfur](https://github.com/krisfur/cachyos-setup/tree/main) - for his fastfetch theme
 - The Linux ricing community – for endless inspiration & shared configs
 

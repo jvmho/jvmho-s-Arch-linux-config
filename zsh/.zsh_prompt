@@ -1,0 +1,119 @@
+autoload -Uz colors && colors
+autoload -Uz add-zle-hook-widget
+setopt PROMPT_SUBST
+
+# Информация о Git (безопасная версия)
+_git_info() {
+    git rev-parse --git-dir >/dev/null 2>&1 || return
+
+    # Ветка / хэш
+    local branch
+    branch=$(git branch --show-current 2>/dev/null)
+    if [[ -z "$branch" ]]; then
+        branch=$(git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+    fi
+
+    # Подсчёт неотслеженных и изменённых файлов
+    local untracked=0 changed=0
+    local porcelain
+    porcelain=$(git status --porcelain 2>/dev/null)
+    if [[ -n "$porcelain" ]]; then
+        while IFS= read -r line; do
+            if [[ "$line" =~ '^\?\?' ]]; then
+                ((untracked++))
+            elif [[ -n "$line" ]]; then
+                ((changed++))
+            fi
+        done <<< "$porcelain"
+    fi
+
+    # Количество файлов в последнем коммите
+    local last_commit=0
+    if git rev-parse HEAD~1 >/dev/null 2>&1; then
+        last_commit=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | wc -l | tr -d ' ')
+        # На случай, если команда вернула не число (обрезка пробелов)
+        last_commit=${last_commit//[!0-9]/}
+        [[ -z "$last_commit" ]] && last_commit=0
+    fi
+
+    # Значки Nerd Font
+    local git_icon=$'\ue0a0'          # 
+    local untracked_icon=$'\uf15b'    # 
+    local changed_icon=$'\uf040'      # 
+    local commit_icon=$'\uf417'       # 
+
+    # Первая часть [  on ветка ]
+    local first_part="%F{magenta}[%f%F{cyan}${git_icon} on ${branch}%f%F{magenta}]%f"
+
+    # Вторая часть (только ненулевые значения)
+    local second_parts=""
+    (( untracked > 0 )) && second_parts+=" %F{cyan}${untracked_icon}${untracked}%f"
+    (( changed > 0 ))   && second_parts+=" %F{cyan}${changed_icon}${changed}%f"
+    (( last_commit > 0 )) && second_parts+=" %F{cyan}${commit_icon}${last_commit}%f"
+
+    local second_part=""
+    if [[ -n "$second_parts" ]]; then
+        second_part="%F{magenta}-[%f${second_parts} %F{magenta}]%f"
+    fi
+
+    echo -n " ${first_part}${second_part}"
+}
+
+autoload -Uz colors && colors
+autoload -Uz add-zle-hook-widget
+setopt PROMPT_SUBST
+
+# -------------------------
+# FULL PROMPT (2 lines)
+# -------------------------
+_transient_prompt() {
+    local git_info=$(_git_info)
+    PROMPT="%F{cyan}╭─[%f%F{green}%n%f%F{cyan}]%f %F{green}%~%f${git_info} %F{red}%T%f
+%F{cyan}╰─%f %F{yellow}❯%f "
+}
+
+# -------------------------
+# TRANSIENT PROMPT (1 line)
+# -------------------------
+_full_prompt() {
+    PROMPT="%F{cyan}[%f%F{green}%n%f%F{cyan}]%f%F{green} %~%f %F{yellow}❯%f "
+}
+
+# -------------------------
+# STATE
+# -------------------------
+typeset -g _FULL_PROMPT=""
+
+# -------------------------
+# AFTER COMMAND → RESTORE FULL PROMPT
+# -------------------------
+precmd() {
+    _full_prompt
+    _FULL_PROMPT="$PROMPT"
+}
+
+# -------------------------
+# ENTER EDIT MODE → TRANSIENT
+# -------------------------
+_zle_transient() {
+    _transient_prompt
+    zle reset-prompt
+}
+
+# -------------------------
+# LEAVE EDIT MODE → FULL PROMPT
+# -------------------------
+_zle_full() {
+    PROMPT="$_FULL_PROMPT"
+    zle reset-prompt
+}
+
+# -------------------------
+# HOOKS (CRITICAL PART)
+# -------------------------
+add-zle-hook-widget line-init _zle_transient
+add-zle-hook-widget keymap-select _zle_transient
+add-zle-hook-widget zle-line-finish _zle_full
+
+# init
+_full_prompt

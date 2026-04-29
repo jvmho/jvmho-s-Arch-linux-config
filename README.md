@@ -19,6 +19,7 @@ This repository contains my personal configuration files for Wayland compositors
 | **Waybar**   | Highly customizable status bar                   |
 | **Wofi**     | Wayland application launcher & menu              |
 | **Kitty**    | GPU-accelerated, feature-rich terminal emulator  |
+| **Fastfetch**| Utility to flex with your distro >:)             |
 | **Zsh**      | Interactive shell with custom prompt & aliases   |
 | **Tools**    | `grim`, `slurp`, `wl-clipboard`, `playerctl`, `brightnessctl`, `pamixer`, `aww` |
 
@@ -133,6 +134,7 @@ Command	Description
 - [Waybar](https://github.com/Alexays/Waybar) & [Wofi](https://github.com/SimplyCEO/wofi) – for sleek Wayland UI tools
 - [Kitty](https://github.com/kovidgoyal/kitty) – for a blazing fast terminal
 - [ficd0](https://github.com/ficd0) - for beautyful color palette from his helix [ashen](https://github.com/ficd0/ashen) theme
+- [krisfur](https://github.com/krisfur/cachyos-setup/tree/main) - for his fastfetch theme
 - The Linux ricing community – for endless inspiration & shared configs
 
 ## 📜 License

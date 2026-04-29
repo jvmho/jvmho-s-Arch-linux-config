@@ -1,0 +1,35 @@
+# Тема оформления
+theme = "ashen"
+
+[editor]
+line-number = "absolute"  # Относительные номера строк для удобной навигации
+mouse = true              # Поддержка мыши
+cursorline = true         # Подсветка текущей строки
+bufferline = "always"     # Всегда показывать список открытых вкладок
+auto-format = true        # Автоформатирование при сохранении
+color-modes = true        # Цветной индикатор режима (Insert, Normal и т.д.)
+
+[editor.cursor-shape]
+insert = "bar"            # В режиме вставки курсор — вертикальная черта
+normal = "block"          # В обычном режиме — блок
+select = "underline"      # В режиме выделения — подчеркивание
+
+[editor.file-picker]
+hidden = false            # Показывать скрытые файлы в поиске
+
+[editor.lsp]
+display-messages = true   # Показывать сообщения от LSP в статус-баре
+display-inlay-hints = true # Показывать подсказки типов прямо в коде
+
+[editor.indent-guides]
+render = true             # Показывать вертикальные линии отступов
+character = "╎"           # Символ для линий отступов
+
+[editor.statusline]
+left = ["mode", "spacer", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"

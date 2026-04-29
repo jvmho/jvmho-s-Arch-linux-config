@@ -1,0 +1,33 @@
+# Настройка серверов (Language Servers)
+[language-server.rust-analyzer.config]
+checkOnSave = { command = "clippy" } # Проверка кода через Clippy при сохранении
+procMacro = { enable = true }         # Включение поддержки процедурных макросов
+cargo = { allFeatures = true }        # Учитывать все feature-флаги проекта
+
+[language-server.pyright.config]
+reportMissingImports = true          # Предупреждать о пропущенных импортах
+
+# Настройки для конкретных языков
+[[language]]
+name = "rust"
+auto-format = true                   # Автоформатирование через rustfmt
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = [ "pyright", "ruff" ] # Использование связки Pyright (типы) и Ruff (линтинг)
+formatter = { command = "black", args = ["-", "-q"] } # Форматирование через Black
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" } # Автоматическое добавление/удаление импортов
+
+[[language]]
+name = "toml"
+auto-format = true                   # Чтобы наш config.toml всегда был в порядке
+
+[[language]]
+name = "markdown"
+soft-wrap.enable = true              # Мягкий перенос строк для текста
+text-width = 80                      # Ограничение ширины текста для удобства чтения

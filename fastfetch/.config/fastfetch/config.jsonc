@@ -10,125 +10,111 @@
   },
 
   "display": {
-    "separator": " "
+    "separator": " ",
+    "color": {
+      "keys": "38;2;197;48;48",
+      "title": "38;2;197;48;48",
+      "output": "38;2;180;180;180"
+    },
+    "size": {
+      "binaryPrefix": "si"
+    }
   },
-
   "modules": [
-
+    "title",
+    // HARDWARE
     {
       "type": "custom",
-      "format": "┌──────────────────────────────────────────────┐"
+      "format": "{#title}┌── {#keys} Hardware {#title}────────────────────────────────────┐"
     },
-
     {
-      "type": "title",
-      "key": "│",
-      "format": "{user-name}@{host-name}"
-    },
-
-    {
-      "type": "custom",
-      "format": "├──────────────────────────────────────────────┤"
-    },
-
-    {
-      "type": "custom",
-      "format": "│ HARDWARE"
+      "type": "host",
+      "key": "│ "
     },
     {
       "type": "cpu",
-      "key": "│ CPU:",
-      "format": "{name}"
+      "key": "│ ├─ ",
+      "format": "{1}"
     },
     {
       "type": "gpu",
-      "key": "│ GPU:",
-      "format": "{name}"
+      "key": "│ ├─ "
+    },
+    {
+      "type": "display",
+      "key": "│ ├─ 󰍹"
     },
     {
       "type": "memory",
-      "key": "│ RAM:",
-      "format": "{used} / {total}"
+      "key": "│ ├─ "
     },
     {
       "type": "disk",
-      "key": "│ Disk:",
-      "format": "{size-used} / {size-total}"
+      "key": "│ ├─ ",
+      "folders": "/"
     },
-
+    {
+      "type": "battery",
+      "key": "│ └─ "
+    },
     {
       "type": "custom",
-      "format": "├──────────────────────────────────────────────┤"
+      "format": "{#title}└──────────────────────────────────────────────────┘"
     },
-
+    // SOFTWARE
     {
       "type": "custom",
-      "format": "│ SYSTEM"
+      "format": "{#title}┌── {#keys} Software {#title}──────────────┐"
     },
     {
       "type": "os",
-      "key": "│ OS:",
-      "format": "{name} {version}"
+      "key": "│ "
     },
     {
       "type": "kernel",
-      "key": "│ Kernel:",
-      "format": "{release}"
+      "key": "│ ├─ "
     },
     {
       "type": "uptime",
-      "key": "│ Uptime:",
-      "format": "{days}d {hours}h {minutes}m"
-    },
-
-    {
-      "type": "custom",
-      "format": "├──────────────────────────────────────────────┤"
-    },
-
-    {
-      "type": "custom",
-      "format": "│ SOFTWARE"
+      "key": "│ ├─ "
     },
     {
       "type": "packages",
-      "key": "│ Packages:",
-      "format": "{all}"
-    },
-    {
-      "type": "wm",
-      "key": "│ WM:",
-      "format": "{pretty-name}"
-    },
-    {
-      "type": "terminal",
-      "key": "│ Terminal:",
-      "format": "{name}"
+      "key": "│ ├─ "
     },
     {
       "type": "shell",
-      "key": "│ Shell:",
-      "format": "{name}"
+      "key": "│ ├─ "
     },
     {
-      "type": "cursor",
-      "key": "│ Cursor:",
-      "format": "{theme}"
+      "type": "terminal",
+      "key": "│ └─ "
     },
-    {
-      "type": "font",
-      "key": "│ Font:",
-      "format": "{name}"
-    },
-    {
-      "type": "locale",
-      "key": "│ Locale:",
-      "format": "{result}"
-    },
-
     {
       "type": "custom",
-      "format": "└──────────────────────────────────────────────┘"
+      "format": "{#title}└────────────────────────────┘"
+    },
+    // DESTKOP
+    {
+      "type": "custom",
+      "format": "{#title}┌── {#keys} Desktop {#title}──────────────┐"
+    },
+    {
+      "type": "wm",
+      "key": "│ "
+    },
+    {
+      "type": "de",
+      "key": "│ └─ "
+    },
+    {
+      "type": "custom",
+      "format": "{#title}└───────────────────────────┘"
+    },
+    {
+      "type": "colors",
+      "symbol": "square",
+      "paddingLeft": 2
     }
   ]
 }

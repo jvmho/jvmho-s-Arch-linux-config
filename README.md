@@ -15,6 +15,7 @@ This repository contains my personal configuration files for Wayland compositors
 | :---------- | :----------------------------------------------- |
 | **Hyprland** | Dynamic tiling Wayland compositor                |
 | **Niri**     | Scrollable tiling Wayland compositor             |
+| **Hyprlock** | Very customizable lock screen                    |
 | **Waybar**   | Highly customizable status bar                   |
 | **Wofi**     | Wayland application launcher & menu              |
 | **Kitty**    | GPU-accelerated, feature-rich terminal emulator  |
@@ -68,12 +69,12 @@ Super = Windows/Command key
 ### 🪟 Window & Workspace Management
 
 Binding	Action
-- `Super + Return`	Open Terminal (Kitty)
-- `Super + Q`	Close focused window
+- `Super + Q`	Open Terminal (Kitty)
+- `Super + Shift + C`	Close focused window
 - `Super + Space`	Launch App Menu (Wofi)
 - `Super + H/J/K/L`	Focus window (Vim-style Left/Down/Up/Right)
 - `Super + Ctrl + H/J/K/L`	Move window (Vim-style)
-- `Super + O`	Toggle Overview
+- `Super + O`	Toggle Overview (niri only)
 - `Super + V`	Toggle floating mode
 - `Super + F`	Maximize window (keep bars)
 - `Super + Shift + F`	True Fullscreen
@@ -87,7 +88,7 @@ Binding	Action
 - `Super + Shift + S`	Screenshot region
 - `Super + Shift + Space`	Power Menu
 - `Super + Shift + E`	Logout Script
-- `Super + Alt + L`	Lock Screen (Swaylock)
+- `Super + Alt + L`	Lock Screen (Hyprlock)
 - `Super + S`	Toggle Special Workspace (Scratchpad)
 
 ### 🔊 Media & Brightness

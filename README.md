@@ -3,7 +3,7 @@
 Personal Linux desktop configuration managed with **GNU Stow**.  
 Featuring a dual-compositor setup (**Hyprland** & **Niri**) on Wayland, with a focus on minimalism, performance, and keyboard-driven workflows.
 
-![Preview](.github/preview.png)
+![Preview](.git/preview.png)
 
 ## 📖 Overview
 
@@ -23,7 +23,9 @@ This repository contains my personal configuration files for Wayland compositors
 
 ## 🎨 Aesthetics
 
-- **Color Palette:** Warm red and dark teal colours from [here](https://github.com/ficd0/ashen)
+- **Style:** Niri-inspired UI within Hyprland.
+- **Color Palette:** Warm red (`#FF4F5B`) to orange (`#E69143`) active gradients; Dark teal inactive borders. Based on the [Ashen](https://github.com/ficd0/ashen) theme.
+- **Geometry:** 12px corner rounding, heavy shadows (30 range), and 10px gaps.
 - **Terminal/UI Font:** `JetBrainsMono Nerd Font`
 
 ## 🛠️ Installation
@@ -64,23 +66,36 @@ chsh -s $(which zsh)
 Super = Windows/Command key
 
 ### 🪟 Window & Workspace Management
-Binding	Action
-- `Super + Shift + C`	Close focused window
-- `Super + Q`	Open terminal (Kitty)
-- `Super + Space`	Launch app menu (Wofi)
-- `Super + 1..9`	Switch to workspace 1-9
-- `Super + Shift + 1..9`	Move window to workspace 1-9
-- `Super + Up/Down/Left/Right`	Focus window
-- `Super + Shift + Up/Down/Left/Right`	Move window
-- `Super + Shift + F`	Toggle fullscreen
-- `Super + Shift + R`	Reload compositor config
 
-### 📸 Media & Utilities
 Binding	Action
-- `Super + Shift + S`	Screenshot region (grim+slurp)
-- `XF86AudioRaise/Lower`	Volume up/down
-- `XF86AudioMute	Toggle` mute
-- `XF86MonBrightnessUp/Down`	Brightness control
+- Super + Return	Open Terminal (Kitty)
+- Super + Q	Close focused window
+- Super + Space	Launch App Menu (Wofi)
+- Super + H/J/K/L	Focus window (Vim-style Left/Down/Up/Right)
+- Super + Ctrl + H/J/K/L	Move window (Vim-style)
+- Super + O	Toggle Overview
+- Super + V	Toggle floating mode
+- Super + F	Maximize window (keep bars)
+- Super + Shift + F	True Fullscreen
+- Super + 1..9	Switch to workspace 1-9
+- Super + R	Toggle Split (Dwindle)
+
+### 🚀 Apps & Utilities
+
+Binding	Action
+- Super + Z	Launch Zen Browser
+- Super + Shift + S	Screenshot region
+- Super + Shift + Space	Power Menu
+- Super + Shift + E	Logout Script
+- Super + Alt + L	Lock Screen (Swaylock)
+- Super + S	Toggle Special Workspace (Scratchpad)
+
+### 🔊 Media & Brightness
+
+Binding	Action
+- XF86AudioRaise/Lower	Volume +/- 10%
+- XF86AudioMute	Toggle Mute
+- XF86MonBrightnessUp/Down	Brightness +/- 10%
 
 > ⚠️ Niri uses a different config syntax (config.kdl). Keybinds are functionally similar but defined separately in niri/.config/niri/.
 

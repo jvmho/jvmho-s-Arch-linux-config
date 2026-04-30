@@ -168,7 +168,7 @@ binds {
     // --==[ Main keybinds ] ==--
     Mod+Q hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: wofi" { spawn "wofi"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "hyprlock"; }
     Mod+Shift+S hotkey-overlay-title="Screenshot" { spawn "/home/jvmho/.local/bin/screenshot.sh"; }
     Mod+Shift+C repeat=false { close-window; }
     Mod+O repeat=false { toggle-overview; }

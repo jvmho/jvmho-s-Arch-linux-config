@@ -4,24 +4,44 @@
     "height": 34,
     "spacing": 0,
     "modules-left": [
-        "keyboard-state",
-        "suctom/separator",
+        "custom/kb",
+        "custom/separator",
         "custom/memory_full",
         "custom/separator",
         "cpu"
     ],
     "modules-center": ["clock"],
     "modules-right": [
+        "network",
+        "custom/separator",
         "pulseaudio",
         "custom/separator",
         "backlight",
         "custom/separator",
         "battery",
+        "custom/separator",
+        "tray",
+        "custom/separator_space",
         "custom/power"
     ],
 
-    "keyboard-state": {
-        "format": "{layout}"
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+        "show-passive-items": true  
+    },
+
+    "custom/kb": {
+        "exec": "xkb-switch",
+        "interval": 1
+    },
+
+    "network": {
+        "interface": "wlo1",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "ETH ",
+        "format-disconnected": "No WiFi",
+        "tooltip-format": "{ifname}\n{ipaddr}\n{essid} ({signalStrength}%)"
     },
 
     "clock": {
@@ -54,8 +74,13 @@
     },
 
     "custom/separator": {
-    "format": "|",
-    "tooltip": false
+        "format": "|",
+        "tooltip": false
+    },
+
+    "custom/separator_space": {
+        "format": "",
+        "tooltip": false
     },
     
     "battery": {

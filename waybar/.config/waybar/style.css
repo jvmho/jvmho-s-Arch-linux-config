@@ -26,6 +26,12 @@ window#waybar {
     font-size: 16px
 }
 
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .active { -gtk-icon-effect: highlight; }
+#tray > .need-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #4A8B8B;
+}
 #pulseaudio { color: #E69143; }
 #backlight  { color: #E69143; }
 #memory     { color: #E69143; }
@@ -54,7 +60,7 @@ window#waybar {
 /* --- CPU --- */
 #cpu {
     color: #E69143;
-    padding: 0 12px;
+    padding: 0 6px;
     margin: 0;
     font-size: 16px
 }
@@ -62,7 +68,7 @@ window#waybar {
 /* --- RAM (кастомный модуль) --- */
 #custom-memory_full {
     color: #E69143;            /* стартовый цвет */
-    padding: 0 12px;
+    padding: 0 6px;
     margin: 0;
     transition: color 0.3s ease;
     font-size: 16px
@@ -77,4 +83,16 @@ window#waybar {
 }
 #custom-memory_full.critical {
     color: #C53030;            /* красный */
+}
+
+#network {
+    color: #E69143;
+    padding: 0 12px;
+    font-size: 16px;
+}
+
+#custom-kb {
+    color: #E69143;
+    padding: 0 6 0 18px;
+    font-size: 16px; 
 }

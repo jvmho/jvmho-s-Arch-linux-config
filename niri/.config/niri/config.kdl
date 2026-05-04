@@ -123,9 +123,10 @@ prefer-no-csd
 // <--==[ AUTOSTART ]==-->
 //  `-=================-`
 
-spawn-at-startup "waybar"      // Top bar
-spawn-at-startup "mako"        // Popups
-spawn-at-startup "awww-daemon" // Wallpapers
+spawn-at-startup "waybar"             // Top bar
+spawn-at-startup "mako"               // Popups
+spawn-at-startup "awww-daemon"        // Wallpapers
+spawn-at-startup "xwayland-satellite" // XWayland fix
 
 // Greeting text with hotkeys on startup
 hotkey-overlay {

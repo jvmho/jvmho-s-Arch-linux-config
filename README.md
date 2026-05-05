@@ -25,7 +25,7 @@ This repository contains my personal configuration files for Wayland compositors
 
 ## 🎨 Aesthetics
 
-- **Style:** Niri-inspired UI within Hyprland.
+- **Style:** Sharp and high contrast theme for `Niri` and `Hyprland` WMs
 - **Color Palette:** Warm red (`#FF4F5B`) to orange (`#E69143`) active gradients; Dark teal inactive borders. Based on the [Ashen](https://github.com/ficd0/ashen) theme.
 - **Geometry:** 12px corner rounding, and 10px gaps.
 - **Terminal/UI Font:** `JetBrainsMono Nerd Font`

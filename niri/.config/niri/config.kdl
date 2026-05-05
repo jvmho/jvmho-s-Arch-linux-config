@@ -174,7 +174,8 @@ binds {
     Mod+Shift+C repeat=false { close-window; }
     Mod+O repeat=false { toggle-overview; }
     Mod+Z hotkey-overlay-title="Open a browser: Zen" { spawn "/home/jvmho/Applications/zen/zen"; }
-
+    Mod+Shift+W hotkey-overlay-title="Open NetworkManger to connect to WiFi" { spawn "/home/jvmho/dotfiles/utils/nmgui/script.sh"; }
+    
     // --==[ Volume ]==--
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

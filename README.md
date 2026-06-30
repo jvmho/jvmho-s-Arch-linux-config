@@ -21,7 +21,7 @@ This repository contains my personal configuration files for Wayland compositors
 | **Kitty**    | GPU-accelerated, feature-rich terminal emulator  |
 | **Fastfetch**| Utility to flex with your distro >:)             |
 | **Zsh**      | Interactive shell with custom prompt & aliases   |
-| **Tools**    | `grim`, `slurp`, `wl-clipboard`, `playerctl`, `brightnessctl`, `pamixer`, `aww`, `nmcli` |
+| **Tools**    | `grim`, `slurp`, `wl-clipboard`, `playerctl`, `brightnessctl`, `pamixer`, `aww`, `nmcli`, 'thunar' |
 
 ## 🎨 Aesthetics
 
@@ -92,6 +92,7 @@ Binding	Action
 - `Super + Alt + L`	Lock Screen (Hyprlock)
 - `Super + S`	Toggle Special Workspace (Scratchpad)
 - `Super + Shift + W` WiFi Connection Manager
+- 'Super + E' Open file browser (thunar)
 
 ### 🔊 Media & Brightness
 

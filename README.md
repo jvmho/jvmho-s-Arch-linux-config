@@ -34,34 +34,61 @@ This repository contains my personal configuration files for Wayland compositors
 
 ### 1. Install Dependencies (Arch-based)
 
-```bash
-sudo pacman -S --needed \
-  hyprland niri waybar wofi kitty zsh stow git \
-  ttf-jetbrains-mono-nerd noto-fonts-emoji \
-  grim slurp wl-clipboard playerctl brightnessctl pamixer polkit-gnome
-```
+## Installation
 
-> 💡 For Debian/Ubuntu/Fedora, adapt package names accordingly. Some tools may require AUR or third-party repos.
+> [!NOTE]
+> Arch Linux is the primary supported distribution. Other distributions are supported on a best-effort basis.
 
-### 2. Clone & Deploy
+### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-
-# Deploy all packages
-stow */
-
-# Or deploy selectively
-stow hyprland niri waybar wofi kitty zsh
+git clone https://github.com/<username>/dotfiles.git
+cd dotfiles
 ```
 
-### 3. Set Zsh as Default Shell
+### Run the installer
 
 ```bash
-chsh -s $(which zsh)
-# Log out and back in for changes to take effect
+chmod +x install.sh
+./install.sh
 ```
+
+The installer will:
+
+- Detect your Linux distribution
+- Install all required packages and dependencies
+- Install optional AUR packages on Arch (if `yay` is available)
+- Create symlinks for the configuration files in `~/.config`
+
+### Supported distributions
+
+| Distribution | Status |
+|--------------|--------|
+| Arch Linux | Fully supported |
+| EndeavourOS | Fully supported |
+| CachyOS | Fully supported |
+| Manjaro | Fully supported |
+| Debian | Partial support |
+| Ubuntu | Partial support |
+| Fedora | Partial support |
+
+### Arch Linux
+
+For the best experience, install an AUR helper such as `yay` before running the installer:
+
+```bash
+sudo pacman -S --needed git base-devel
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+
+### After installation
+
+Log out and start a **Niri** session from your display manager, or launch it manually if you start your graphical session from the TTY.
+
+If you make changes to the repository later, simply rerun the installer to update the symlinks.
 
 ## ⌨️ Keybindings
 

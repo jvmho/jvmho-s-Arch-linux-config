@@ -6,6 +6,11 @@ SAVEHIST=5000
 
 ZSH_AUTOSUGGESTIONS_HIGHLIGHT_STYLE="fg=#6D3B22"
 
+# Autosuggestions
+
+autoload -Uz compinit && compinit
+zstyle ':completion*:*:git:*' script ~/.zsh-git-completion.zsh
+
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 

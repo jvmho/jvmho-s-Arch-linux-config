@@ -2,6 +2,20 @@ autoload -Uz colors && colors
 autoload -Uz add-zle-hook-widget
 setopt PROMPT_SUBST
 
+# Working directory shortening
+
+_short_pwd() {
+    local path=${PWD/#$HOME/\~}
+    local -a parts
+    parts=(${(s:/:)path})
+
+    if (( ${#parts} <= 4 )); then
+        print -r -- "$path"
+    else
+        print -r -- "${parts[1]}/${parts[2]}/.../${parts[-2]}/${parts[-1]}"
+    fi
+}
+
 # Информация о Git (безопасная версия)
 _git_info() {
     git rev-parse --git-dir >/dev/null 2>&1 || return
@@ -66,9 +80,12 @@ setopt PROMPT_SUBST
 # -------------------------
 # FULL PROMPT (2 lines)
 # -------------------------
+
 _transient_prompt() {
     local git_info=$(_git_info)
-    PROMPT="%F{cyan}╭─[%f%F{green}%n%f%F{cyan}]%f %F{green}%~%f${git_info} %F{red}%T%f
+    local short_pwd=$(_short_pwd)
+
+    PROMPT="%F{cyan}╭─[%f%F{green}%n%f%F{cyan}]%f %F{green}${short_pwd}%f${git_info} %F{red}%T%f
 %F{cyan}╰─%f %F{yellow}❯%f "
 }
 

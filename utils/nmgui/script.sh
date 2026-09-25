@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
 
 cache_file="/tmp/nm_wifi_cache" # Cache folder
 cache_ttl=10 # Cache lifetime 

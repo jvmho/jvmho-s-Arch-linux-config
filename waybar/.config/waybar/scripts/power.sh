@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CHOICE=$(printf "Logout\nReboot\nPoweroff" | wofi \
     --dmenu \

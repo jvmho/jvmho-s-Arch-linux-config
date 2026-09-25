@@ -11,9 +11,4 @@ ZSH_AUTOSUGGESTIONS_HIGHLIGHT_STYLE="fg=#6D3B22"
 autoload -Uz compinit && compinit
 zstyle ':completion*:*:git:*' script ~/.zsh-git-completion.zsh
 
-# Plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 [[ -f ~/.zsh_prompt ]] && source ~/.zsh_prompt

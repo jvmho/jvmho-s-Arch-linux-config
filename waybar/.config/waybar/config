@@ -4,14 +4,13 @@
     "height": 34,
     "spacing": 0,
     "modules-left": [
-        "custom/kb",
-        "custom/separator",
         "custom/memory_full",
         "custom/separator",
         "cpu"
     ],
     "modules-center": ["clock"],
     "modules-right": [
+        "custom/separator",
         "network",
         "custom/separator",
         "pulseaudio",
@@ -62,11 +61,10 @@
     "cpu": {
         "format": " {usage}%",
         "interval": 2,
-        // "on-click": ""  // можно добавить действие
     },
 
     "custom/memory_full": {
-        "exec": "~/.config/waybar/scripts/memory_full.sh",
+        "exec": "/home/jvmho/.config/waybar/scripts/memory_full.sh",
         "return-type": "json",
         "interval": 2,
         "format": "{}",

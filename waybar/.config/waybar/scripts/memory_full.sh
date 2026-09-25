@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Получаем данные из /proc/meminfo
 read -r mem_total_kb mem_avail_kb swap_total_kb swap_free_kb < <(
     awk '/MemTotal:/ {mt=$2}
